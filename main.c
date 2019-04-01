@@ -143,8 +143,8 @@ void hex_input()
 				for(mask=0x10,col=0x00;mask&key;mask<<=1)
 				++col;
 				val=col*4+row;
-				ip[i]=LCD_CODE[val];   //add each char of input to array? 
-				i++;
+				ip[x]=LCD_CODE[val];   //add each char of input to array? 
+				x++;
 				temp2='X';
 				lcd_data();	
 			}
