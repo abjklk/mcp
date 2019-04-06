@@ -1,0 +1,483 @@
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN lcd.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE lcd.c ROM(COMPACT) BROWSE DEBUG OBJECTEXTEND CODE LISTINCLUDE SYMBOLS
+
+line level    source
+
+   1          
+   2          #include "G:\emc\at89c51xd2.h"
+   1      =1  /*H***************************************************************************
+   2      =1  * NAME: AT89C51XD2.h           
+   3      =1  *----------------------------------------------------------------------------
+   4      =1  * PURPOSE: SFR Description file for AT89C51xD2 products 
+   5      =1  *                               ON KEIL compiler
+   6      =1  *****************************************************************************/
+   7      =1  
+   8      =1  #define Sfr(x, y)               sfr x = y
+   9      =1  #define Sbit(x, y, z)   sbit x = y^z
+  10      =1  #define Sfr16(x,y)          sfr16 x = y
+  11      =1  
+  12      =1  /*----------------------------------------*/
+  13      =1  /* Include file for 8051 SFR Definitions  */
+  14      =1  /*----------------------------------------*/
+  15      =1  
+  16      =1  /*  BYTE Register  */
+  17      =1  Sfr (P0 , 0x80);        
+  18      =1  
+  19      =1  Sbit (P0_7 , 0x80, 7);
+  20      =1  Sbit (P0_6 , 0x80, 6);
+  21      =1  Sbit (P0_5 , 0x80, 5);
+  22      =1  Sbit (P0_4 , 0x80, 4);
+  23      =1  Sbit (P0_3 , 0x80, 3);
+  24      =1  Sbit (P0_2 , 0x80, 2);
+  25      =1  Sbit (P0_1 , 0x80, 1);
+  26      =1  Sbit (P0_0 , 0x80, 0);
+  27      =1  
+  28      =1  Sfr (P1 , 0x90);        
+  29      =1  
+  30      =1  Sbit (P1_7 , 0x90, 7);
+  31      =1  Sbit (P1_6 , 0x90, 6);
+  32      =1  Sbit (P1_5 , 0x90, 5);
+  33      =1  Sbit (P1_4 , 0x90, 4);
+  34      =1  Sbit (P1_3 , 0x90, 3);
+  35      =1  Sbit (P1_2 , 0x90, 2);
+  36      =1  Sbit (P1_1 , 0x90, 1);
+  37      =1  Sbit (P1_0 , 0x90, 0);
+  38      =1  
+  39      =1  
+  40      =1  
+  41      =1  Sfr (P2 , 0xA0); 
+  42      =1  Sbit (P2_7 , 0xA0, 7);
+  43      =1  Sbit (P2_6 , 0xA0, 6);
+  44      =1  Sbit (P2_5 , 0xA0, 5);
+  45      =1  Sbit (P2_4 , 0xA0, 4);
+  46      =1  Sbit (P2_3 , 0xA0, 3);
+  47      =1  Sbit (P2_2 , 0xA0, 2);
+  48      =1  Sbit (P2_1 , 0xA0, 1);
+  49      =1  Sbit (P2_0 , 0xA0, 0);
+  50      =1  
+  51      =1         
+  52      =1  Sfr (P3 , 0xB0);        
+  53      =1  
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 2   
+
+  54      =1  Sbit (P3_7 , 0xB0, 7);
+  55      =1  Sbit (P3_6 , 0xB0, 6);
+  56      =1  Sbit (P3_5 , 0xB0, 5);
+  57      =1  Sbit (P3_4 , 0xB0, 4);
+  58      =1  Sbit (P3_3 , 0xB0, 3);
+  59      =1  Sbit (P3_2 , 0xB0, 2);
+  60      =1  Sbit (P3_1 , 0xB0, 1);
+  61      =1  Sbit (P3_0 , 0xB0, 0);
+  62      =1  
+  63      =1  Sbit (RD , 0xB0, 7);
+  64      =1  Sbit (WR , 0xB0, 6);
+  65      =1  Sbit (T1 , 0xB0, 5);
+  66      =1  Sbit (T0 , 0xB0, 4);
+  67      =1  Sbit (INT1 , 0xB0, 3);
+  68      =1  Sbit (INT0 , 0xB0, 2);
+  69      =1  Sbit (TXD , 0xB0, 1);
+  70      =1  Sbit (RXD , 0xB0, 0);
+  71      =1  
+  72      =1  Sfr (P4 , 0xC0);        
+  73      =1  Sbit (P4_7 , 0xC0, 7);
+  74      =1  Sbit (P4_6 , 0xC0, 6);
+  75      =1  Sbit (P4_5 , 0xC0, 5);
+  76      =1  Sbit (P4_4 , 0xC0, 4);
+  77      =1  Sbit (P4_3 , 0xC0, 3);
+  78      =1  Sbit (P4_2 , 0xC0, 2);
+  79      =1  Sbit (P4_1 , 0xC0, 1);
+  80      =1  Sbit (P4_0 , 0xC0, 0);
+  81      =1  
+  82      =1  Sfr (P5 , 0xE8);        
+  83      =1  Sbit (P5_7 , 0xE8, 7);
+  84      =1  Sbit (P5_6 , 0xE8, 6);
+  85      =1  Sbit (P5_5 , 0xE8, 5);
+  86      =1  Sbit (P5_4 , 0xE8, 4);
+  87      =1  Sbit (P5_3 , 0xE8, 3);
+  88      =1  Sbit (P5_2 , 0xE8, 2);
+  89      =1  Sbit (P5_1 , 0xE8, 1);
+  90      =1  Sbit (P5_0 , 0xE8, 0);
+  91      =1  
+  92      =1      
+  93      =1  Sfr (PSW , 0xD0);       
+  94      =1  
+  95      =1  Sbit (CY  , 0xD0  , 7);
+  96      =1  Sbit (AC  , 0xD0  , 6);
+  97      =1  Sbit (F0  , 0xD0  , 5);
+  98      =1  Sbit (RS1 , 0xD0  , 4);
+  99      =1  Sbit (RS0 , 0xD0  , 3);
+ 100      =1  Sbit (OV  , 0xD0  , 2);
+ 101      =1  Sbit (UD  , 0xD0  , 1);
+ 102      =1  Sbit (P   , 0xD0  , 0);
+ 103      =1  
+ 104      =1  Sfr (ACC , 0xE0);       
+ 105      =1  Sfr (B , 0xF0); 
+ 106      =1  Sfr (SP , 0x81);        
+ 107      =1  Sfr (DPL , 0x82);       
+ 108      =1  Sfr (DPH , 0x83);       
+ 109      =1  
+ 110      =1  Sfr (PCON , 0x87);      
+ 111      =1  Sfr (CKCON0 , 0x8F);     
+ 112      =1  Sfr (CKCON1 , 0xAF);
+ 113      =1  
+ 114      =1  /*------------------ TIMERS registers ---------------------*/
+ 115      =1  Sfr (TCON , 0x88);
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 3   
+
+ 116      =1  Sbit (TF1 , 0x88, 7);
+ 117      =1  Sbit (TR1 , 0x88, 6);
+ 118      =1  Sbit (TF0 , 0x88, 5);
+ 119      =1  Sbit (TR0 , 0x88, 4);
+ 120      =1  Sbit (IE1 , 0x88, 3);
+ 121      =1  Sbit (IT1 , 0x88, 2);
+ 122      =1  Sbit (IE0 , 0x88, 1);
+ 123      =1  Sbit (IT0 , 0x88, 0);
+ 124      =1          
+ 125      =1  Sfr (TMOD , 0x89);      
+ 126      =1  
+ 127      =1  Sfr  (T2CON , 0xC8);
+ 128      =1  Sbit (TF2   , 0xC8, 7);
+ 129      =1  Sbit (EXF2  , 0xC8, 6);
+ 130      =1  Sbit (RCLK  , 0xC8, 5);
+ 131      =1  Sbit (TCLK  , 0xC8, 4);
+ 132      =1  Sbit (EXEN2 , 0xC8, 3);
+ 133      =1  Sbit (TR2   , 0xC8, 2);
+ 134      =1  Sbit (C_T2  , 0xC8, 1);
+ 135      =1  Sbit (CP_RL2, 0xC8, 0);
+ 136      =1          
+ 137      =1  Sfr (T2MOD , 0xC9);     
+ 138      =1  Sfr (TL0 , 0x8A);       
+ 139      =1  Sfr (TL1 , 0x8B);       
+ 140      =1  Sfr (TL2 , 0xCC);       
+ 141      =1  Sfr (TH0 , 0x8C);       
+ 142      =1  Sfr (TH1 , 0x8D);       
+ 143      =1  Sfr (TH2 , 0xCD);       
+ 144      =1  Sfr (RCAP2L , 0xCA);    
+ 145      =1  Sfr (RCAP2H , 0xCB);    
+ 146      =1  Sfr (WDTRST , 0xA6);    
+ 147      =1  Sfr (WDTPRG , 0xA7);    
+ 148      =1  
+ 149      =1  
+ 150      =1  /*------------------- UART registers ------------------------*/
+ 151      =1  Sfr (SCON , 0x98);      
+ 152      =1  Sbit (SM0  , 0x98, 7);
+ 153      =1  Sbit (FE   , 0x98, 7);
+ 154      =1  Sbit (SM1  , 0x98, 6);
+ 155      =1  Sbit (SM2  , 0x98, 5);
+ 156      =1  Sbit (REN  , 0x98, 4);
+ 157      =1  Sbit (TB8  , 0x98, 3);
+ 158      =1  Sbit (RB8  , 0x98, 2);
+ 159      =1  Sbit (TI   , 0x98, 1);
+ 160      =1  Sbit (RI   , 0x98, 0);
+ 161      =1  
+ 162      =1  Sfr (SBUF , 0x99);      
+ 163      =1  Sfr (SADEN , 0xB9);     
+ 164      =1  Sfr (SADDR , 0xA9);     
+ 165      =1  
+ 166      =1  /*-------------------- Internal Baud Rate Generator --------*/
+ 167      =1  Sfr (BRL        , 0x9A);      
+ 168      =1  Sfr (BDRCON , 0x9B);      
+ 169      =1  
+ 170      =1  
+ 171      =1  
+ 172      =1  /*-------------------- IT registers -----------------------*/
+ 173      =1  Sfr (IEN0  , 0xA8);      
+ 174      =1  Sfr (IEN1  , 0xB1);      
+ 175      =1  Sfr (IPH0 , 0xB7);      
+ 176      =1  Sfr (IPH1 , 0xB3);      
+ 177      =1  Sfr (IPL0 , 0xB8);      
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 4   
+
+ 178      =1  Sfr (IPL1 , 0xB2);      
+ 179      =1  
+ 180      =1  
+ 181      =1  
+ 182      =1  /*  IEN0  */
+ 183      =1  Sbit (EA   , 0xA8, 7);
+ 184      =1  Sbit (EC   , 0xA8, 6);
+ 185      =1  Sbit (ET2  , 0xA8, 5);
+ 186      =1  Sbit (ES   , 0xA8, 4);
+ 187      =1  Sbit (ET1  , 0xA8, 3);
+ 188      =1  Sbit (EX1  , 0xA8, 2);
+ 189      =1  Sbit (ET0  , 0xA8, 1);
+ 190      =1  Sbit (EX0  , 0xA8, 0);
+ 191      =1  
+ 192      =1  
+ 193      =1  /*--------------------- PCA registers -----------------------------*/
+ 194      =1  Sfr (CCON , 0xD8);      
+ 195      =1  Sfr (CMOD , 0xD9);      
+ 196      =1  Sfr (CH , 0xF9);        
+ 197      =1  Sfr (CL , 0xE9);        
+ 198      =1  Sfr (CCAP0H  , 0xFA);   
+ 199      =1  Sfr (CCAP0L  , 0xEA);   
+ 200      =1  Sfr (CCAPM0  , 0xDA);   
+ 201      =1  Sfr (CCAP1H  , 0xFB);   
+ 202      =1  Sfr (CCAP1L  , 0xEB);   
+ 203      =1  Sfr (CCAPM1  , 0xDB);   
+ 204      =1  Sfr (CCAP2H  , 0xFC);   
+ 205      =1  Sfr (CCAP2L  , 0xEC);   
+ 206      =1  Sfr (CCAPM2  , 0xDC);   
+ 207      =1  Sfr (CCAP3H  , 0xFD);   
+ 208      =1  Sfr (CCAP3L  , 0xED);   
+ 209      =1  Sfr (CCAPM3  , 0xDD);   
+ 210      =1  Sfr (CCAP4H  , 0xFE);   
+ 211      =1  Sfr (CCAP4L  , 0xEE);   
+ 212      =1  Sfr (CCAPM4  , 0xDE);   
+ 213      =1  /* CCON */
+ 214      =1  Sbit (CF   , 0xD8, 7);
+ 215      =1  Sbit (CR   , 0xD8, 6);
+ 216      =1  
+ 217      =1  Sbit (CCF4   , 0xD8, 4);
+ 218      =1  Sbit (CCF3  , 0xD8, 3);
+ 219      =1  Sbit (CCF2  , 0xD8, 2);
+ 220      =1  Sbit (CCF1  , 0xD8, 1);
+ 221      =1  Sbit (CCF0  , 0xD8, 0);
+ 222      =1  
+ 223      =1  
+ 224      =1  /*------------------ T W I registers ------------------------------*/
+ 225      =1  Sfr ( SSCON , 0x93);
+ 226      =1  Sfr ( SSCS , 0x94);
+ 227      =1  Sfr ( SSDAT , 0x95);
+ 228      =1  Sfr ( SSADR , 0x96);
+ 229      =1  Sfr ( PI2       , 0xF8);        
+ 230      =1  Sbit (PI2_1  , 0xF8, 1);
+ 231      =1  Sbit (PI2_0  , 0xF8, 0);
+ 232      =1  
+ 233      =1  /*-------------------- OSC control registers ----------------------*/
+ 234      =1  Sfr ( CKSEL , 0x85 );
+ 235      =1  Sfr ( OSCCON , 0x86 );
+ 236      =1  Sfr ( CKRL , 0x97 );
+ 237      =1  
+ 238      =1  /*-------------------- Keyboard control registers -----------------*/
+ 239      =1  Sfr ( KBLS , 0x9C );
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 5   
+
+ 240      =1  Sfr ( KBE , 0x9D );
+ 241      =1  Sfr ( KBF , 0x9E );
+ 242      =1  /*-------------------- SPI ---------------------- -----------------*/
+ 243      =1  Sfr ( SPCON, 0xC3 );
+ 244      =1  Sfr ( SPSTA, 0xC4 );
+ 245      =1  Sfr ( SPDAT, 0xC5 );
+ 246      =1  
+ 247      =1  /*------ Misc ----------------------------------------------------*/
+ 248      =1  Sfr     ( AUXR , 0x8E);
+ 249      =1  Sfr ( AUXR1, 0xA2);
+ 250      =1  Sfr ( FCON, 0xD1);
+ 251      =1  
+ 252      =1  
+ 253      =1  /*------ E data --------------------------------------------------*/
+ 254      =1  
+ 255      =1  Sfr ( EECON,  0xD2 );
+ 256      =1  
+ 257      =1  
+ 258      =1  
+ 259      =1  
+ 260      =1  
+ 261      =1  
+ 262      =1  
+ 263      =1  
+ 264      =1  
+   3          #define display_port P2      //Data pins connected to port 2 on microcontroller
+   4          sbit rs = P3^5;  //RS pin connected to pin 2 of port 3
+   5          sbit rw = P3^6;  // RW pin connected to pin 3 of port 3
+   6          sbit e =  P3^7;  //E pin connected to pin 4 of port 3
+   7          
+   8          extern void msdelay(unsigned int time)  // Function for creating delay in milliseconds.
+   9          {
+  10   1          unsigned i,j ;
+  11   1          for(i=0;i<time;i++)    
+  12   1          for(j=0;j<1275;j++);
+  13   1      }
+  14          extern void lcd_cmd(unsigned char command)  //Function to send command instruction to LCD
+  15          {
+  16   1          display_port = command;
+  17   1          rs= 0;
+  18   1          rw=0;
+  19   1          e=1;
+  20   1          msdelay(1);
+  21   1          e=0;
+  22   1      }
+  23          
+  24          extern void lcd_data(unsigned char disp_data)  //Function to send display data to LCD
+  25          {
+  26   1          display_port = disp_data;
+  27   1          rs= 1;
+  28   1          rw=0;
+  29   1          e=1;
+  30   1          msdelay(1);
+  31   1          e=0;
+  32   1      }
+  33          
+  34          extern void lcd_init()    //Function to prepare the LCD  and get it ready
+  35          {
+  36   1          lcd_cmd(0x38);  // for using 2 lines and 5X7 matrix of LCD
+  37   1          msdelay(10);
+  38   1          lcd_cmd(0x0F);  // turn display ON, cursor blinking
+  39   1          msdelay(10);
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 6   
+
+  40   1          lcd_cmd(0x01);  //clear screen
+  41   1          msdelay(10);
+  42   1          lcd_cmd(0x80);  // bring cursor to position 1 of line 1
+  43   1          msdelay(10);
+  44   1      }
+  45          
+  46          
+  47           
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 7   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION L?0013 (BEGIN)
+0000         L?0014:
+0000 120000      R     LCALL   _lcd_cmd
+0003 7F0A              MOV     R7,#0AH
+0005 7E00              MOV     R6,#00H
+             ; FUNCTION _msdelay (BEGIN)
+                                           ; SOURCE LINE # 8
+;---- Variable 'time' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 9
+                                           ; SOURCE LINE # 11
+;---- Variable 'i' assigned to Register 'R4/R5' ----
+0007 E4                CLR     A
+0008 FD                MOV     R5,A
+0009 FC                MOV     R4,A
+000A         ?C0001:
+000A C3                CLR     C
+000B ED                MOV     A,R5
+000C 9F                SUBB    A,R7
+000D EC                MOV     A,R4
+000E 9E                SUBB    A,R6
+000F 5015              JNC     ?C0007
+                                           ; SOURCE LINE # 12
+;---- Variable 'j' assigned to Register 'R2/R3' ----
+0011 E4                CLR     A
+0012 FB                MOV     R3,A
+0013 FA                MOV     R2,A
+0014         ?C0004:
+0014 0B                INC     R3
+0015 BB0001            CJNE    R3,#00H,?C0011
+0018 0A                INC     R2
+0019         ?C0011:
+0019 BA04F8            CJNE    R2,#04H,?C0004
+001C BBFBF5            CJNE    R3,#0FBH,?C0004
+001F         ?C0003:
+001F 0D                INC     R5
+0020 BD0001            CJNE    R5,#00H,?C0012
+0023 0C                INC     R4
+0024         ?C0012:
+0024 80E4              SJMP    ?C0001
+                                           ; SOURCE LINE # 13
+0026         ?C0007:
+0026 22                RET     
+             ; FUNCTION _msdelay (END)
+
+             ; FUNCTION _lcd_cmd (BEGIN)
+                                           ; SOURCE LINE # 14
+;---- Variable 'command' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 15
+                                           ; SOURCE LINE # 16
+0000 8FA0              MOV     P2,R7
+                                           ; SOURCE LINE # 17
+0002 C2B5              CLR     rs
+                                           ; SOURCE LINE # 18
+0004 C2B6              CLR     rw
+                                           ; SOURCE LINE # 19
+0006 D2B7              SETB    e
+                                           ; SOURCE LINE # 20
+0008 7F01              MOV     R7,#01H
+000A 7E00              MOV     R6,#00H
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 8   
+
+000C 120000      R     LCALL   _msdelay
+                                           ; SOURCE LINE # 21
+000F C2B7              CLR     e
+                                           ; SOURCE LINE # 22
+0011 22                RET     
+             ; FUNCTION _lcd_cmd (END)
+
+             ; FUNCTION _lcd_data (BEGIN)
+                                           ; SOURCE LINE # 24
+;---- Variable 'disp_data' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 25
+                                           ; SOURCE LINE # 26
+0000 8FA0              MOV     P2,R7
+                                           ; SOURCE LINE # 27
+0002 D2B5              SETB    rs
+                                           ; SOURCE LINE # 28
+0004 C2B6              CLR     rw
+                                           ; SOURCE LINE # 29
+0006 D2B7              SETB    e
+                                           ; SOURCE LINE # 30
+0008 7F01              MOV     R7,#01H
+000A 7E00              MOV     R6,#00H
+000C 120000      R     LCALL   _msdelay
+                                           ; SOURCE LINE # 31
+000F C2B7              CLR     e
+                                           ; SOURCE LINE # 32
+0011 22                RET     
+             ; FUNCTION _lcd_data (END)
+
+             ; FUNCTION lcd_init (BEGIN)
+                                           ; SOURCE LINE # 34
+                                           ; SOURCE LINE # 35
+                                           ; SOURCE LINE # 36
+0000 7F38              MOV     R7,#038H
+                                           ; SOURCE LINE # 37
+0002 120000      R     LCALL   L?0013
+                                           ; SOURCE LINE # 38
+0005 7F0F              MOV     R7,#0FH
+                                           ; SOURCE LINE # 39
+0007 120000      R     LCALL   L?0013
+                                           ; SOURCE LINE # 40
+000A 7F01              MOV     R7,#01H
+                                           ; SOURCE LINE # 41
+000C 120000      R     LCALL   L?0014
+                                           ; SOURCE LINE # 42
+000F 7F80              MOV     R7,#080H
+0011 120000      R     LCALL   _lcd_cmd
+                                           ; SOURCE LINE # 43
+0014 7F0A              MOV     R7,#0AH
+0016 7E00              MOV     R6,#00H
+0018 020000      R     LJMP    _msdelay
+             ; FUNCTION lcd_init (END)
+
+C51 COMPILER V7.50   LCD                                                                   04/04/2019 22:09:00 PAGE 9   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A0H  1
+P3 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B0H  1
+_lcd_data. . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  disp_data. . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+_lcd_cmd . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  command. . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+lcd_init . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+_msdelay . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0007H  -----
+  time . . . . . . . . . . . . . . . .  * REG *  DATA   U_INT    0006H  2
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_INT    0004H  2
+  j. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_INT    0002H  2
+e. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+rs . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+rw . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    102    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

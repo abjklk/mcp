@@ -1,0 +1,5 @@
+"prot.obj",
+"lcd.obj" 
+TO "prot" 
+RAMSIZE(256) 
+CODE( 0X0000-0XFFFF )

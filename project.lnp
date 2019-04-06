@@ -1,5 +1,0 @@
-"main.obj",
-"real_lcd.obj" 
-TO "project" 
-RAMSIZE(256) 
-CODE( 0X0000-0XFFFF )
